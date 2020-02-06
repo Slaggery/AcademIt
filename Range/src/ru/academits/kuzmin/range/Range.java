@@ -30,8 +30,6 @@ public class Range {
     }
 
     public boolean isInside(double number) {
-        double epsilon = 1.5e-10;
-
-        return from - number < epsilon && number - to < epsilon;
+        return from <= number && number <= to;
     }
 }
