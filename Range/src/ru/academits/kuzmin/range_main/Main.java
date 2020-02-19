@@ -4,37 +4,43 @@ import ru.academits.kuzmin.range.Range;
 
 public class Main {
     public static void main(String[] args) {
-        Range diapason = new Range(1, 10);
+        Range range = new Range(1, 10);
 
         double inspectionNumber = 7;
 
-        if (diapason.isInside(inspectionNumber)) {
-            System.out.printf("Число %.2f входит в диапазон от %.2f до %.2f%n", inspectionNumber, diapason.getFrom(), diapason.getTo());
+        if (range.isInside(inspectionNumber)) {
+            System.out.printf("Число %.2f входит в диапазон от %.2f до %.2f%n", inspectionNumber, range.getFrom(), range.getTo());
         } else {
-            System.out.printf("Число %.2f не входит в диапазон от %.2f до %.2f%n", inspectionNumber, diapason.getFrom(), diapason.getTo());
+            System.out.printf("Число %.2f не входит в диапазон от %.2f до %.2f%n", inspectionNumber, range.getFrom(), range.getTo());
         }
 
-        Range diapason1 = new Range(1, 12);
-        Range diapason2 = new Range(6, 9);
+        Range range1 = new Range(1, 12);
+        Range range2 = new Range(6, 9);
 
-        Range intervalsIntersection = new Range(0, 0).getIntervalsIntersection(diapason1, diapason2);
+        /*Range rangesIntersection = new Range(0, 0).getIntersection(range1, range2);
 
-        if (intervalsIntersection == null) {
+        if (rangesIntersection == null) {
             System.out.println("Диапазона пересечения нет");
         } else {
-            System.out.printf("Новый диапазон пересечения от %.2f до %.2f%n", intervalsIntersection.getFrom(), intervalsIntersection.getTo());
+            System.out.printf("Новый диапазон пересечения от %.2f до %.2f%n", rangesIntersection.getFrom(), rangesIntersection.getTo());
         }
 
-        Range[] intervalsMerge = new Range(0, 0).getIntervalsMerge(diapason1, diapason2);
+        Range[] intervalsMerge = new Range(0, 0).getUnion(range1, range2);
 
-        for (Range range : intervalsMerge) {
-            System.out.printf("Новый диапазон объединения от %.2f до %.2f%n", range.getFrom(), range.getTo());
+        for (Range range3 : intervalsMerge) {
+            System.out.printf("Новый диапазон объединения от %.2f до %.2f%n", range3.getFrom(), range3.getTo());
         }
 
-        Range[] intervalsDifference = new Range(0, 0).getIntervalsDifference(diapason1, diapason2);
+        Range[] rangesDifference = new Range(0, 0).getDifference(range1, range2);
 
-        for (Range range : intervalsDifference) {
-            System.out.printf("Новый диапазон разности от %.2f до %.2f%n", range.getFrom(), range.getTo());
-        }
+        for (Range range4 : rangesDifference) {
+            System.out.printf("Новый диапазон разности от %.2f до %.2f%n", range4.getFrom(), range4.getTo());
+        }*/
+
+        Range intersection = range1;
+
+        intersection.getIntersection(range2);
+
+        intersection.print();
     }
 }
