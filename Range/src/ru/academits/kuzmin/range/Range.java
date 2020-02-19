@@ -37,8 +37,12 @@ public class Range {
         double resultFrom;
         double resultTo;
 
-        resultFrom = Math.max(this.from, from);
-        resultTo = Math.min(this.to, to);
+        if (to <= range.from) {
+            return null;
+        }
+
+        resultFrom = Math.max(from, range.from);
+        resultTo = Math.min(to, range.to);
 
         return new Range(resultFrom, resultTo);
     }
@@ -93,7 +97,7 @@ public class Range {
         }
     }
 
-    public void print () {
-        System.out.printf("(%.2f; %.2f)", from, to);
+    public void print() {
+        System.out.printf("(%.2f; %.2f)%n", from, to);
     }
 }
